@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkdyepetmxxxs"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_jdkki"]
+[ext_resource type="Texture2D" uid="uid://gr73bfan60qf" path="res://Assets/Sprites/RedBall-0001.png" id="1_ypcfj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm6re"]
+atlas = ExtResource("1_ypcfj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rf2j"]
+atlas = ExtResource("1_ypcfj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0wo"]
+atlas = ExtResource("1_ypcfj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_el3nm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm6re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rf2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0wo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ms74t"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_jdkki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_el3nm")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ms74t")

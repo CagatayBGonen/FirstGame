@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://iem7s5iq5fq6"]
+
+[ext_resource type="AudioStream" uid="uid://du43lqu7g1cyi" path="res://Assets/Music/335584__hmmm101__pixel-song-8.wav" id="1_lj8mb"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lj8mb")
+autoplay = true
+bus = &"Music"
